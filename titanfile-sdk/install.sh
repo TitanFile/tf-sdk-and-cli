@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="titanfile/titanfile-python-sdk"
+REPO="TitanFile/tf-sdk-and-cli"
 INSTALL_DIR="/usr/local/bin"
 BINARY_NAME="titanfile"
 

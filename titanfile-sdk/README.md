@@ -9,26 +9,26 @@ Official SDK and CLI for the [TitanFile API](https://apidocs.titanfile.com).
 ### Option 1 — macOS / Linux (one-line install)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/titanfile/titanfile-python-sdk/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/TitanFile/tf-sdk-and-cli/main/titanfile-sdk/install.sh | bash
 ```
 
 Detects your OS and architecture, downloads the right binary, and installs it to `/usr/local/bin/titanfile`.
 
 ### Option 2 — Windows
 
-Download `titanfile-windows-x64.exe` from the [latest release](https://github.com/titanfile/titanfile-python-sdk/releases/latest), rename it to `titanfile.exe`, and place it anywhere on your `PATH`.
+Download `titanfile-windows-x64.exe` from the [latest release](https://github.com/TitanFile/tf-sdk-and-cli/releases/latest), rename it to `titanfile.exe`, and place it anywhere on your `PATH`.
 
 ### Option 3 — Python (pip)
 
 Requires Python 3.8+.
 
 ```bash
-pip install git+https://github.com/titanfile/titanfile-python-sdk.git
+pip install "git+https://github.com/TitanFile/tf-sdk-and-cli.git#subdirectory=titanfile-sdk"
 ```
 
 ### Manual binary download
 
-All platform binaries are on the [releases page](https://github.com/titanfile/titanfile-python-sdk/releases/latest):
+All platform binaries are on the [releases page](https://github.com/TitanFile/tf-sdk-and-cli/releases/latest):
 
 | Platform | File |
 |---|---|
@@ -155,7 +155,7 @@ The TitanFile API exposes chunked upload endpoints for files larger than 200 MB.
 Install:
 
 ```bash
-pip install git+https://github.com/titanfile/titanfile-python-sdk.git
+pip install "git+https://github.com/TitanFile/tf-sdk-and-cli.git#subdirectory=titanfile-sdk"
 ```
 
 Upload:
@@ -182,7 +182,7 @@ The SDK detects the file size automatically and switches to chunked upload when 
 Install the CLI:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/titanfile/titanfile-python-sdk/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/TitanFile/tf-sdk-and-cli/main/titanfile-sdk/install.sh | bash
 ```
 
 Then upload:
@@ -198,7 +198,7 @@ titanfile upload --file /path/to/large-file.zip
 
 #### Windows
 
-1. Download `titanfile-windows-x64.exe` from the [latest release](https://github.com/titanfile/titanfile-python-sdk/releases/latest).
+1. Download `titanfile-windows-x64.exe` from the [latest release](https://github.com/TitanFile/tf-sdk-and-cli/releases/latest).
 2. Rename it to `titanfile.exe` and place it anywhere on your `PATH`.
 3. Run:
 
