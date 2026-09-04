@@ -146,6 +146,74 @@ tf.messages.send(
 
 ---
 
+## Large File Upload (> 200 MB)
+
+The TitanFile API exposes chunked upload endpoints for files larger than 200 MB. These require multiple sequential API calls with specific session state. Rather than implementing this yourself, the SDK and CLI handle the full flow in a single call.
+
+### Python SDK
+
+Install:
+
+```bash
+pip install git+https://github.com/titanfile/titanfile-python-sdk.git
+```
+
+Upload:
+
+```python
+from titanfile import TitanFileClient
+
+client = TitanFileClient(
+    api_id='YOUR_API_ID',
+    api_key='YOUR_API_KEY',
+    subdomain='yourcompany',
+)
+
+file_id = client.files.upload('/path/to/large-file.zip')
+print(file_id)
+```
+
+The SDK detects the file size automatically and switches to chunked upload when needed. No extra configuration required.
+
+### CLI Binary (no Python runtime required)
+
+#### macOS / Linux
+
+Install the CLI:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/titanfile/titanfile-python-sdk/main/install.sh | bash
+```
+
+Then upload:
+
+```bash
+export TITANFILE_API_ID=your-api-id
+export TITANFILE_API_KEY=your-api-key
+export TITANFILE_SUBDOMAIN=yourcompany
+
+titanfile upload --file /path/to/large-file.zip
+# {"file_id": "abc-123"}
+```
+
+#### Windows
+
+1. Download `titanfile-windows-x64.exe` from the [latest release](https://github.com/titanfile/titanfile-python-sdk/releases/latest).
+2. Rename it to `titanfile.exe` and place it anywhere on your `PATH`.
+3. Run:
+
+```bat
+titanfile upload ^
+  --api-id YOUR_API_ID ^
+  --api-key YOUR_API_KEY ^
+  --subdomain yourcompany ^
+  --file C:\path\to\large-file.zip
+```
+
+The output `file_id` can be passed directly to the send message endpoint.
+
+---
+
 ## Releasing a new version
 
 Tag the commit and push — GitHub Actions builds and publishes everything automatically:
@@ -158,4 +226,3 @@ git push origin v1.0.1
 This triggers:
 - Binaries built for Windows, macOS (Intel + Apple Silicon), Linux
 - GitHub Release created with all four binaries attached
-- Package published to PyPI
