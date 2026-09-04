@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "titanfile"
+version = "1.0.0"
+description = "Official Python SDK for the TitanFile API"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+dependencies = [
+    "requests>=2.28",
+]
+
+[project.scripts]
+titanfile = "titanfile.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/titanfile/titanfile-python-sdk"
+Documentation = "https://apidocs.titanfile.com"
